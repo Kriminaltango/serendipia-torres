@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+  padding: 16px 24px 12px 16px!important;
+}
+
+.cart-ico {
+  line-height: 24px;
+}
