@@ -13,9 +13,9 @@ export default function ItemListContainer() {
     const prom = new Promise((resolve,reject)=>{
       setTimeout(()=>{
         resolve([
-          { id:1, title:"Campera", price:20000, pictureUrl:"https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" },
-          { id:2, title:"Mochila", price:14000, pictureUrl:"https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg"},
-          { id:3, title:"Pantalon", price:6000, pictureUrl:"https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" }
+          { id:1, title:"Reno", price:5000, pictureUrl:"https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_960_720.jpg" },
+          { id:2, title:"Loro", price:4500, pictureUrl:"https://cdn.pixabay.com/photo/2018/04/09/19/55/low-poly-3305284_960_720.jpg"},
+          { id:3, title:"Gato", price:6000, pictureUrl:"https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png" }
         ])
       },2000)
     })
