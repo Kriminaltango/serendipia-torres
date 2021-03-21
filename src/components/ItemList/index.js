@@ -10,3 +10,5 @@ export const ItemList = ({items=[]})=>{
         </div>
     )
 }
+
+export default ItemList

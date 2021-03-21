@@ -26,7 +26,7 @@ export function ItemCount({ stock, initial, onAdd }) {
           type="button"
           onClick={removeHandle}
         >
-         <i class="fas fa-minus fa-2x"></i>
+         <i className="fas fa-minus fa-2x"></i>
         </button>
         <div className="contador">{count}</div>
         <button
@@ -35,7 +35,7 @@ export function ItemCount({ stock, initial, onAdd }) {
           type="button"
           onClick={addHandle}
         >
-         <i class="fas fa-plus fa-2x"></i>
+         <i className="fas fa-plus fa-2x"></i>
         </button>
       </div>
       <button
