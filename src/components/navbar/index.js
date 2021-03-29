@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget"
 
 export const NavBar = () => {
     return <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a className="navbar-brand" href="#">Serendipia</a>
+    <Link to={'/'} className="navbar-brand">Serendipia</Link>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -11,24 +12,24 @@ export const NavBar = () => {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="nav navbar-nav ml-auto">
         <li className="nav-item active">
-          <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+          <Link to={'/'} className="nav-link">Home <span className="sr-only">(current)</span></Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Shop</a>
+          <Link to={'/Shop'} className="nav-link" >Shop</Link>
         </li>
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Escuela
-          </a>
+          <Link to={''}className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorías
+          </Link>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a className="dropdown-item" href="#">Carrera</a>
-            <a className="dropdown-item" href="#">Workshops</a>
+            <Link to={'/category/cuadros'} className="dropdown-item">Carrera</Link>
+            <Link to={'/category/libros'} className="dropdown-item" href="#">Workshops</Link>
             <div className="dropdown-divider"></div>
-            <a className="dropdown-item" href="#">Cursos</a>
+            <Link to={'/category/cursos'} className="dropdown-item" href="#">Cursos</Link>
           </div>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Nosotros</a>
+          <Link to={'/Nosotros'} className="nav-link" href="#">Nosotros</Link>
         </li>
         <li className="nav-item"><CartWidget/></li> 
       </ul>

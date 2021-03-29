@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Item = ({item}) => {
     return (
-        <a href="">
+      <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <Link to={`/item/${item.id}`}>
               <div className="card-flyer">
                 <div className="text-box">
                   <div className="image-box">
@@ -14,6 +16,7 @@ export const Item = ({item}) => {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
+        </div>
     )
 }

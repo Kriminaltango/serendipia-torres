@@ -18,7 +18,7 @@ export function ItemCount({ stock, initial, onAdd }) {
   };
 
   return (
-    <div className="flex-column align-items-strech mx-auto">
+    <div className="flex-column align-items-strech">
       <div className="m-2 p-2 d-flex flex-row justify-content-around align-items-center border-secondary border rounded">
         <button
           disabled={count <= 0}

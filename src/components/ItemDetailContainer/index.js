@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import ItemDetail from '../ItemDetail'
+import { useParams } from 'react-router-dom'
 
 
-const getItems = () => {
+const getItems = (id) => {
     return new Promise((resolve)=>{
         setTimeout (()=>{resolve({
             title:"Cuadro Gato",
@@ -16,10 +17,11 @@ const getItems = () => {
 
 export default function ItemDetailContainer() {
     const [item, setItem] = useState(null)
+    const {itemId} = useParams
     useEffect(() => {
-        getItems().then((res)=> setItem(res))
+        getItems(itemId).then((res)=> setItem(res))
         return;
-    }, [])
+    }, [itemId])
 
     return <ItemDetail item={item} />
 }
