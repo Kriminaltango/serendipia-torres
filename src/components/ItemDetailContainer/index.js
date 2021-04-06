@@ -19,9 +19,8 @@ export default function ItemDetailContainer() {
     const [item, setItem] = useState(null)
     const {itemId} = useParams
     useEffect(() => {
-        getItems(itemId).then((res)=> setItem(res))
-        return;
-    }, [itemId])
+        getItems(itemId).then((res)=> setItem(res));
+    },)
 
     return <ItemDetail item={item} />
 }
