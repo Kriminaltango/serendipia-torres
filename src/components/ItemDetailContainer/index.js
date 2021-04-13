@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 const getItems = (id) => {
     return new Promise((resolve)=>{
         setTimeout (()=>{resolve({
+            id: 52,
             title:"Cuadro Gato",
             price: 6000,
             description: "Cuadro de un gato colorado realizado con triángulos",
