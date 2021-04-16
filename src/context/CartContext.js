@@ -1,21 +1,51 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 
-export const CartContext = React.createContext({})
+export const  CartContext = React.createContext([])
 
-export const CartProvider = ({children})=>{
-
+export const CartProvider = ({children}) => {
+    // array con items de este forma   {item:item, quantity: number}
     const [cart,setCart] = useState([])
+    const [totalItems,setTotalItems] = useState(0);
+    const [totalPrecio,setTotalPrecio] = useState(0)
+
+    useEffect(()=>{
+        let precio= cart.reduce((acumulador,itemActual)=>{
+            const p = itemActual.quantity * itemActual.item.price
+            return acumulador + p //120
+        },0);
+
+        let totItems= cart.reduce((accumulador, ItemActual)=>{
+            return accumulador + ItemActual.quantity
+        },0);
+
+        // for(let cartItem of cart) {
+        //     totItems += cartItem.quantity;
+        //     precio += cartItem.quantity * cartItem.item.price;
+        // }
+
+        setTotalItems(totItems);
+        setTotalPrecio(precio)
+
+    },[cart])
+    
 
     const addItem = (newItem, newQuantity)=>{
 
- 
-        const {item = null, quantity = 0} = cart.find(e=> e.item.id === newItem.id) || {}
-        
+        const prevCartItem = cart.find(e=> e.item.id === newItem.id)
 
-        const newCart = cart.filter(e => e.item.id !== newItem.id)
+        let newCart;
+        let qty;
+        if (prevCartItem){
+            newCart = cart.filter(e => e.item.id !== newItem.id)
+            qty = prevCartItem.quantity + newQuantity;
+        }else{
+            newCart = [...cart]
+            qty =  newQuantity;
+        }
 
         setCart([...newCart, 
-                { item: newItem , quantity: quantity + newQuantity  }])
+                { item: newItem , quantity: qty  }])
+        
     } // agregar cierta cantidad de un ítem al carrito
 
 
@@ -36,5 +66,9 @@ export const CartProvider = ({children})=>{
 
 
 
-    return <CartContext.Provider value={{cart,addItem,removeItem,clear,isInCart}} >{children}</CartContext.Provider>
+    return (
+    <CartContext.Provider value={{cart,addItem,removeItem,clear,isInCart, totalItems,totalPrecio}} >
+        {children}
+    </CartContext.Provider>
+    )
 }
