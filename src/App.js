@@ -6,6 +6,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import {CartProvider} from './context/CartContext';
+import { Cart } from './components/Cart';
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
         <Route path="/Nosotros">
           Nosotros
         </Route>
+
+        <Route path="/cart">
+          <h2>Carrito de Compras</h2>
+          <Cart />
+        </Route>
       </Switch>
     </div>
     </BrowserRouter>
@@ -45,3 +51,4 @@ function App() {
 }
 
 export default App;
+

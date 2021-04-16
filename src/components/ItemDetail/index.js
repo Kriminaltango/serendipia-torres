@@ -6,32 +6,27 @@ import {CartContext} from '../../context/CartContext'
 export default function ItemDetail({ item }) {
     const [count, setCount] = useState (0)
 
-    const {addItem, cart} = useContext(CartContext);
+    const {addItem} = useContext(CartContext);
 
-    const addHandler = (contador) =>{
-        console.log('se agregó un item', contador)
-        setCount(contador)
-    } 
+    const onAdd = (quantityToAdd) => {
+        const qty = parseInt(quantityToAdd)
+        console.log('se agregó un item', qty);
+        addItem(item, qty)
 
-    const terminarCompra = () => {
-        addItem(item, count)
+        setCount(qty)
     }
 
     return <>
             
-            <img src={item?.img} alt=""/>
-            <h2>{item?.title}</h2>
-            <p>{item?.description}</p>
-            <div>${item?.price}</div>
 
 
-            {count == 0 ?
-                <ItemCount stock="6" initial="2" onAdd={addHandler} />
+            {count === 0 ?
+                <ItemCount stock="6" initial="2" onAdd={onAdd} />
                     :
                 <div>
                     <p>agregaste {count}</p>
                     <Link to={'/cart'}>
-                        <button onClick={terminarCompra}>Terminar mi Compra</button>
+                        <button>Terminar mi Compra</button>
                     </Link>
                 </div>
             }

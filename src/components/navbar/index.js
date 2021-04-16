@@ -14,16 +14,14 @@ export const NavBar = () => {
         <li className="nav-item active">
           <Link to={'/'} className="nav-link">Home <span className="sr-only">(current)</span></Link>
         </li>
-        <li className="nav-item">
-          <Link to={'/Shop'} className="nav-link" >Shop</Link>
-        </li>
+        
         <li className="nav-item dropdown">
           <Link to={''}className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorías
           </Link>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <Link to={'/category/cuadros'} className="dropdown-item">Carrera</Link>
-            <Link to={'/category/libros'} className="dropdown-item" href="#">Workshops</Link>
+            <Link to={'/category/oraculo'} className="dropdown-item">Oraculos</Link>
+            <Link to={'/category/accesorios'} className="dropdown-item" href="#">Accesorios</Link>
             <div className="dropdown-divider"></div>
             <Link to={'/category/cursos'} className="dropdown-item" href="#">Cursos</Link>
           </div>

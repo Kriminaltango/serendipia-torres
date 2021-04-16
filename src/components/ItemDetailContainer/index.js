@@ -2,27 +2,33 @@ import React, {useState, useEffect} from 'react'
 import ItemDetail from '../ItemDetail'
 import { useParams } from 'react-router-dom'
 
+import {getFirestore} from '../../firebase';
 
-const getItems = (id) => {
-    return new Promise((resolve)=>{
-        setTimeout (()=>{resolve({
-            id: 52,
-            title:"Cuadro Gato",
-            price: 6000,
-            description: "Cuadro de un gato colorado realizado con triángulos",
-            img:"https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png"
 
-        })},2000)
-    })
+const getItems = (id) => { 
+    const db = getFirestore();
+    const itemsCollection = db.collection('items')
+    
+    const item = itemsCollection.doc(id) 
+    return item.get();
 }
 
 export default function ItemDetailContainer() {
     const [item, setItem] = useState(null)
-    const {itemId} = useParams
+    const {itemId, otroId} = useParams()
+
     useEffect(() => {
-        getItems(itemId).then((res)=> setItem(res));
-    },)
+        getItems(itemId)
+        .then((res)=> {
+            console.log('existe?', res.exists);
+            if (res.exists){
+                setItem(res.data())
+            }
+        })
+        return;
+    }, [itemId])
 
-    return <ItemDetail item={item} />
-}
-
+  
+     return <> {itemId} - {otroId}
+     <ItemDetail item={item} /></>
+    }

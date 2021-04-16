@@ -10,7 +10,7 @@ export const Item = ({item}) => {
                   <div className="image-box">
                     <img src={item.pictureUrl} alt="" style={{width: "18rem"}} />
                   </div>
-                  <div className="text-container" key={item.id}>
+                  <div className="text-container">
                     <h6 className="card-title">{item.title}</h6>
                     <div className="price text-success"><h5 className="mt-4">${item.price}</h5></div>
                   </div>
