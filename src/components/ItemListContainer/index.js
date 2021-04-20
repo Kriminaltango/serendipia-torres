@@ -17,7 +17,7 @@ export default function ItemListContainer() {
     const db = getFirestore();
     const itemsCollection = db.collection('items') 
     const filtrado = itemsCollection
-       .where('categoria','==', categoryId).limit(2)
+       .where('categoryId','==', categoryId).limit(2)
     const prom =  filtrado.get();
 
 
@@ -46,9 +46,7 @@ export default function ItemListContainer() {
     <div id="cards_landscape_wrap-2">
     Items de la categoría {categoryId}
       <div className="container">
-        <div className="row">
             <ItemList items={items}/>
-        </div>
       </div>
     </div>
   )
