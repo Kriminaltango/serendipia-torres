@@ -17,7 +17,7 @@ export default function ItemListContainer() {
     const db = getFirestore();
     const itemsCollection = db.collection('items') 
     const filtrado = itemsCollection
-       .where('categoryId','==', categoryId).limit(2)
+       .where('categoryId','==', categoryId).limit(5)
     const prom =  filtrado.get();
 
 
