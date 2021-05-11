@@ -119,15 +119,16 @@ function Cart() {
                     <li key={cartItem.item.id}  style={{display:'flex',width:'40%',justifyContent:'space-between', margin:'5px auto'}}>
                         <div> Titulo:  {cartItem.item.title}  </div>
                         <div> cantidad: {cartItem.quantity} </div>
-                        <button onClick={()=> removeItem(cartItem.item.id)}>borrar</button>
+                        <button className='btn btn-dark btn-sm' onClick={()=> removeItem(cartItem.item.id)}>borrar</button>
                     </li>
                 );
             }
             )}
 
            </ul>
-            <div>Total:{totalItems} y {totalPrecio}</div> 
-            <button onClick={clear}>Borrar todo</button>  
+            <div>{totalItems} artículos</div>
+            <div>${totalPrecio}</div>
+            <button className="btn btn-dark" onClick={clear}>Borrar todo</button>  
 
         </div>
 

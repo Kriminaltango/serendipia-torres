@@ -7,6 +7,8 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import {CartProvider} from './context/CartContext';
 import Cart from './components/Cart';
+import Nosotros from './components/Nosotros';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          Prueba
+        <Home />
         </Route>
       </Switch>
       <Switch>
@@ -36,7 +38,7 @@ function App() {
       </Switch>
       <Switch>
         <Route path="/Nosotros">
-          Nosotros
+          <Nosotros />
         </Route>
           <Route path="/cart">
           <h2>Carrito de Compras</h2>

@@ -2,6 +2,7 @@ import React, {useState,useContext}from 'react'
 import {ItemCount} from '../ItemCount'
 import {Link} from 'react-router-dom';
 import { CartContext } from "../../context/CartContext";
+import './styles.css';
 
 
 export default function ItemDetail({ item }) {
@@ -17,8 +18,8 @@ export default function ItemDetail({ item }) {
 
     if (!item) return null;
 
-    return <div>
-            <img src={item?.img} alt=""/>
+    return <div className="contenedor-item">
+            <img src={item?.pictureUrl} alt=""/>
             <h2>{item?.title}</h2>
             <p>{item?.description}</p>
             <div>${item?.price}</div>
@@ -28,7 +29,7 @@ export default function ItemDetail({ item }) {
                     <ItemCount stock="6" initial="2" onAdd={addHandler} />
                         :
                         <Link to='/cart' >
-                            <button >Terminar mi compra</button>
+                            <button className="btn btn-dark btn-sm">Terminar mi compra</button>
                         </Link> 
 
             }
